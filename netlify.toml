@@ -1,0 +1,38 @@
+# Netlify Configuration File (CI/CD Configuration)
+# This file explicitly tells Netlify how to build, deploy, and cache your salon website.
+
+[build]
+  # Specify the directory to publish (root directory containing index.html)
+  publish = "."
+  
+  # No build command is required since this is a pure front-end application
+  command = ""
+
+# Security Headers Configuration
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "upgrade-insecure-requests"
+
+# Cache Control Configuration for Blazing Fast Performance
+# Cache static images for 1 year (since they rarely change)
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache custom CSS stylesheet for 1 year
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache custom JS app script for 1 year
+[[headers]]
+  for = "/app.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
