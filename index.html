@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Salon Colombia Pvt Ltd in Nugegoda, Sri Lanka. Experience affordable luxury with top-tier hairdressing, bridal dressing, nail art, and skin treatments. Open 7 days a week, fully operational during power outages.">
+    <meta name="keywords" content="Salon Colombia, Salon Nugegoda, Nugegoda Salons, Haircut Nugegoda, Bridal Dressing Sri Lanka, Nail Art Nugegoda, Facials Nugegoda, Sri Lanka Beauty Salon">
+    <meta name="author" content="Salon Colombia Pvt Ltd">
+    <title>Salon Colombia Pvt Ltd | Affordable Luxury Salon in Nugegoda</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet.js Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
+    <!-- Link Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo" id="nav-logo">
+                <span class="logo-accent">S</span>alon <span class="logo-accent">C</span>olombia
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#overview" class="nav-link" id="link-overview">Overview</a>
+                <a href="#services" class="nav-link" id="link-services">Services</a>
+                <a href="#gallery" class="nav-link" id="link-gallery">Gallery</a>
+                <a href="#contact" class="nav-link" id="link-contact">Contact</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="btn btn-primary" id="btn-book-now" onclick="openBookingModal()">Book Now</button>
+                <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="overview">
+        <div class="hero-background-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="usp-badge" id="usp-badge-power">
+                    <svg class="usp-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11 21h-1l1-7H7.5c-.83 0-1.22-.67-.79-1.35L12.5 3h1l-1 7h3.5c.83 0 1.22.67.79 1.35L11 21z"/>
+                    </svg>
+                    <span>Works even during power outages</span>
+                </div>
+                
+                <h1 class="hero-title" id="hero-main-title">
+                    Affordable Luxury <br><span class="text-gold">Reimagined</span>
+                </h1>
+                
+                <p class="hero-subtitle" id="hero-sub-text">
+                    Welcome to Salon Colombia, owned by Samuditha. Experience professional beauty care, haircuts, premium nail art, makeup, and therapeutic face treatments tailored just for you in the heart of Nugegoda.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#services" class="btn btn-secondary" id="hero-btn-services">Explore Services</a>
+                    <button class="btn btn-primary" id="hero-btn-book" onclick="openBookingModal()">Book Appointment</button>
+                </div>
+            </div>
+            
+            <div class="hero-quick-info">
+                <div class="quick-info-item" id="info-hours">
+                    <h4>Opening Hours</h4>
+                    <p>Mon - Sun: 09:00 AM - 07:00 PM</p>
+                    <span class="status-badge" id="status-badge">Open Now</span>
+                </div>
+                <div class="quick-info-item" id="info-location">
+                    <h4>Location</h4>
+                    <p>Mudalige's Avenue, Nugegoda</p>
+                </div>
+                <div class="quick-info-item" id="info-contact">
+                    <h4>Call Us</h4>
+                    <a href="tel:0740099725" class="info-link">074 009 9725</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Why Salon Colombia</span>
+                <h2 class="section-title">The Colombia Standard</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" id="feat-power">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>Uninterrupted Service</h3>
+                    <p>Our fully equipped hybrid power backup ensures a complete hair, skin, or nail treatment even during public grid power outages.</p>
+                </div>
+                
+                <div class="feature-card" id="feat-pricing">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3>Affordable Luxury</h3>
+                    <p>Get premium, high-end styling experiences using top global brands at rates that offer outstanding value for your investment.</p>
+                </div>
+                
+                <div class="feature-card" id="feat-stylists">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Expert Team</h3>
+                    <p>Managed directly by Samuditha, our highly skilled professionals continuously train in the newest global trends and aesthetics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Our Offerings</span>
+                <h2 class="section-title">Luxury Treatments</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <!-- Service Filters -->
+            <div class="service-filters" id="service-filters">
+                <button class="filter-btn active" data-filter="all" id="filter-all">All Services</button>
+                <button class="filter-btn" data-filter="hair" id="filter-hair">Hair Care</button>
+                <button class="filter-btn" data-filter="nails" id="filter-nails">Nails & Hands</button>
+                <button class="filter-btn" data-filter="makeup" id="filter-makeup">Makeup & Bridal</button>
+                <button class="filter-btn" data-filter="skin" id="filter-skin">Skin & Therapy</button>
+            </div>
+            
+            <!-- Service Grid -->
+            <div class="services-grid" id="services-grid">
+                
+                <!-- Hair Care -->
+                <div class="service-card" data-category="hair" id="srv-haircut">
+                    <div class="service-details">
+                        <span class="service-cat">Hair Care</span>
+                        <h3>Ladies Hair Cutting & Styling</h3>
+                        <p>Tailored haircuts to match your face structure, inclusive of hair wash and signature blow dry.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 2,500</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Ladies Hair Cutting & Styling')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="hair" id="srv-babycut">
+                    <div class="service-details">
+                        <span class="service-cat">Hair Care</span>
+                        <h3>Babies Hair Cut</h3>
+                        <p>Gentle and creative haircuts for toddlers and children in a friendly, comfortable environment.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 800</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Babies Hair Cut')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="hair" id="srv-colouring">
+                    <div class="service-details">
+                        <span class="service-cat">Hair Care</span>
+                        <h3>Premium Hair Colouring</h3>
+                        <p>Full head color or root touch-ups using premium ammonia-free professional dyes for high-shine protection.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 6,500+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Premium Hair Colouring')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="hair" id="srv-highlight">
+                    <div class="service-details">
+                        <span class="service-cat">Hair Care</span>
+                        <h3>Hair Highlighting / Balayage</h3>
+                        <p>Modern hair highlighting, ombre, or free-hand balayage for depth and sun-kissed textures.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 8,000+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Hair Highlighting / Balayage')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="hair" id="srv-rebonding">
+                    <div class="service-details">
+                        <span class="service-cat">Hair Care</span>
+                        <h3>Professional Rebonding</h3>
+                        <p>Achieve permanent silky, bone-straight hair utilizing top-tier moisturizing formula systems.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 15,000+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Professional Rebonding')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="hair" id="srv-relaxing">
+                    <div class="service-details">
+                        <span class="service-cat">Hair Care</span>
+                        <h3>Hair Relaxing & Perming</h3>
+                        <p>Smooth hair volume reduction or beautiful bouncy permanent curls with nutrient-rich protective treatments.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 9,500+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Hair Relaxing & Perming')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="hair" id="srv-treatment">
+                    <div class="service-details">
+                        <span class="service-cat">Hair Care</span>
+                        <h3>Intensive Keratin Hair Treatment</h3>
+                        <p>Deep restructuring therapy to remove frizz, repair damaged cuticles, and infuse high protein shine.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 7,000+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Intensive Keratin Hair Treatment')">Book</button>
+                    </div>
+                </div>
+
+                <!-- Nails & Hands -->
+                <div class="service-card" data-category="nails" id="srv-nailart">
+                    <div class="service-details">
+                        <span class="service-cat">Nail Care</span>
+                        <h3>Gloss Custom Nail Art</h3>
+                        <p>Exquisite hand-painted details, gold foils, marble patterns, or gems on customized shapes.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 2,000+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Gloss Custom Nail Art')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="nails" id="srv-manicure">
+                    <div class="service-details">
+                        <span class="service-cat">Nail Care</span>
+                        <h3>Spa Manicure</h3>
+                        <p>Nail shaping, cuticle treatment, exfoliating sugar scrub, hand massage, and long-lasting gel polish.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 3,500</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Spa Manicure')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="nails" id="srv-pedicure">
+                    <div class="service-details">
+                        <span class="service-cat">Nail Care</span>
+                        <h3>Luxury Spa Pedicure</h3>
+                        <p>Relaxing foot soak, scrub, callus removal, soothing leg massage, and flawless gel polish finishing.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 4,500</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Luxury Spa Pedicure')">Book</button>
+                    </div>
+                </div>
+
+                <!-- Makeup & Bridal -->
+                <div class="service-card" data-category="makeup" id="srv-bridal">
+                    <div class="service-details">
+                        <span class="service-cat">Makeup & Bridal</span>
+                        <h3>Exclusive Bridal Dressing</h3>
+                        <p>Complete custom bridal packages including makeup, hairstyling, saree/dress draping, and styling consultations.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 45,000+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Exclusive Bridal Dressing')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="makeup" id="srv-makeup">
+                    <div class="service-details">
+                        <span class="service-cat">Makeup & Bridal</span>
+                        <h3>Glam / Occasion Makeup</h3>
+                        <p>High-definition beauty makeup for weddings, parties, photo shoots, and special evening events.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 8,500</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Glam / Occasion Makeup')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="makeup" id="srv-threading">
+                    <div class="service-details">
+                        <span class="service-cat">Makeup & Bridal</span>
+                        <h3>Eyebrow Threading & Shaping</h3>
+                        <p>Precision organic threading to define your facial structures. Quick and highly sanitary.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 400</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Eyebrow Threading & Shaping')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="makeup" id="srv-eyelash">
+                    <div class="service-details">
+                        <span class="service-cat">Makeup & Bridal</span>
+                        <h3>Eyelash Extension</h3>
+                        <p>Premium semi-permanent volume or classic eyelash extensions for flawless wake-up eyes.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 6,000+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Eyelash Extension')">Book</button>
+                    </div>
+                </div>
+
+                <!-- Skin & Therapy -->
+                <div class="service-card" data-category="skin" id="srv-facial">
+                    <div class="service-details">
+                        <span class="service-cat">Skin & Therapy</span>
+                        <h3>Gold Luxury Facial & Cleanup</h3>
+                        <p>Deep skin pore extraction, micro-exfoliation, custom mask, and massage using high-grade whitening serum.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 4,500</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Gold Luxury Facial & Cleanup')">Book</button>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="skin" id="srv-waxing">
+                    <div class="service-details">
+                        <span class="service-cat">Skin & Therapy</span>
+                        <h3>Full Body/Face Waxing</h3>
+                        <p>Ultra-hygienic premium organic wax formulations for gentle, long-lasting hair removal.</p>
+                    </div>
+                    <div class="service-price-row">
+                        <span class="price">Rs. 2,500+</span>
+                        <button class="book-srv-btn" onclick="openBookingModal('Full Body/Face Waxing')">Book</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Showcase / Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Visual Tour</span>
+                <h2 class="section-title">The Colombia Gallery</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" id="gal-item-1">
+                    <img src="images/salon_interior.png" alt="Salon Colombia Interior Design" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Luxurious Interior</h3>
+                        <p>Affordable luxury environment located in Nugegoda</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" id="gal-item-2">
+                    <img src="images/hair_styling.png" alt="Hair styling by expert stylists" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Expert Hairstyling</h3>
+                        <p>Modern hair designs, cuts, and coloring</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" id="gal-item-3">
+                    <img src="images/nail_art.png" alt="Sleek gold nail art design" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Custom Nail Arts</h3>
+                        <p>Creative patterns and premium nail polish finishes</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" id="gal-item-4">
+                    <img src="images/bridal_makeup.png" alt="Elegant wedding bridal makeup" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Flawless Bridal Dressing</h3>
+                        <p>Make your special day absolutely breathtaking</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Client Words</span>
+                <h2 class="section-title">Loved by Hundreds</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="testimonial-slider-container">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-slide active" id="testi-1">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Salon Colombia is my absolute favorite place in Nugegoda. Samuditha and the team are super friendly! I love my gel nails and their hair treatment makes my hair so shiny and soft. Best of all, their rates are very reasonable."</p>
+                        <h4 class="client-name">Dilini Perera</h4>
+                        <span class="client-title">Verified Customer</span>
+                    </div>
+                    
+                    <div class="testimonial-slide" id="testi-2">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"I was amazed that they were fully operational during a sudden power outage last Saturday! The hair colouring and balayage turned out beautiful. Definitely recommend them for professional and stress-free service."</p>
+                        <h4 class="client-name">Nisansala De Silva</h4>
+                        <span class="client-title">Bridal Client</span>
+                    </div>
+
+                    <div class="testimonial-slide" id="testi-3">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Extremely clean, modern and beautifully designed. Got a facial and cleanup here and my skin felt refreshed instantly. The staff is highly professional and gentle. A true luxury salon with affordable rates!"</p>
+                        <h4 class="client-name">Senuri Jayasinghe</h4>
+                        <span class="client-title">Regular Client</span>
+                    </div>
+                </div>
+                
+                <!-- Dot navigation -->
+                <div class="slider-dots" id="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive User Appointments Display Section (Stored in LocalStorage) -->
+    <section class="appointments-display-section" id="my-appointments-section" style="display: none;">
+        <div class="container">
+            <div class="my-appointments-box">
+                <h3>Your Booked Appointments</h3>
+                <p>Keep track of your scheduled visits at Salon Colombia</p>
+                <div class="appointments-list" id="user-appointments-list">
+                    <!-- Dynamic appointments will load here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Find Us</span>
+                <h2 class="section-title">Contact & Location</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Info details -->
+                <div class="contact-info-block">
+                    <div class="info-card" id="contact-details-card">
+                        <h3>Salon Colombia Pvt Ltd</h3>
+                        <p class="salon-owner">Owned by Samuditha</p>
+                        
+                        <div class="info-row">
+                            <span class="info-icon">📍</span>
+                            <div class="info-text">
+                                <strong>Address</strong>
+                                <p>17A 2nd Floor, Mudaliyar's Avenue,<br>Nugegoda, Sri Lanka</p>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-icon">📞</span>
+                            <div class="info-text">
+                                <strong>Hotline</strong>
+                                <p><a href="tel:0740099725">074 009 9725</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-icon">✉️</span>
+                            <div class="info-text">
+                                <strong>Email Address</strong>
+                                <p><a href="mailto:saloncolombia82@gmail.com">saloncolombia82@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-icon">🕒</span>
+                            <div class="info-text">
+                                <strong>Working Hours</strong>
+                                <p>Monday - Sunday: 09:00 AM - 07:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links-box">
+                        <h4>Follow Our Work</h4>
+                        <div class="social-icons">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-link" aria-label="Follow us on Facebook" id="social-fb">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14 13.5h2.5l1-4H14v-2c0-1.03.3-2 1.5-2h2.5V2H14c-3.3 0-5.5 2.2-5.5 5.5v2H6v4h2.5V22h5.5v-8.5z"/>
+                                </svg>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-link" aria-label="Follow us on Instagram" id="social-ig">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map / Form Block -->
+                <div class="contact-map-block">
+                    <div class="map-wrapper">
+                        <!-- Stylized Interactive Map using Leaflet -->
+                        <div id="salon-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-accent">S</span>alon <span class="logo-accent">C</span>olombia
+                </a>
+                <p>Bringing affordable luxury, professional styling, and uninterrupted beauty care to Nugegoda.</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Salon Colombia Pvt Ltd. All Rights Reserved. Crafted with care in Nugegoda.</p>
+                <div class="footer-meta-links">
+                    <a href="#overview">Back to Top</a>
+                    <a href="https://www.roo.lk/shop/Salon-colombia-124" target="_blank">Original Roo.lk Store</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Appointment Booking Modal -->
+    <div class="booking-modal-overlay" id="booking-modal">
+        <div class="booking-modal">
+            <button class="close-modal-btn" id="btn-close-modal" onclick="closeBookingModal()">&times;</button>
+            <div class="booking-modal-header">
+                <h2>Schedule Your Experience</h2>
+                <p>Select your desired service, date, and preferred time slot.</p>
+            </div>
+            
+            <form class="booking-form" id="appointment-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-name">Your Full Name *</label>
+                        <input type="text" id="client-name" required placeholder="Dilini Perera">
+                    </div>
+                    <div class="form-group">
+                        <label for="client-phone">Phone Number *</label>
+                        <input type="tel" id="client-phone" required placeholder="077 123 4567">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="client-email">Email Address</label>
+                    <input type="email" id="client-email" placeholder="dilini@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="booking-service">Select Service *</label>
+                    <select id="booking-service" required>
+                        <option value="" disabled selected>Choose a premium service...</option>
+                        
+                        <optgroup label="Hair Care">
+                            <option value="Ladies Hair Cutting & Styling">Ladies Hair Cutting & Styling (Rs. 2,500)</option>
+                            <option value="Babies Hair Cut">Babies Hair Cut (Rs. 800)</option>
+                            <option value="Premium Hair Colouring">Premium Hair Colouring (Rs. 6,500+)</option>
+                            <option value="Hair Highlighting / Balayage">Hair Highlighting / Balayage (Rs. 8,000+)</option>
+                            <option value="Professional Rebonding">Professional Rebonding (Rs. 15,000+)</option>
+                            <option value="Hair Relaxing & Perming">Hair Relaxing & Perming (Rs. 9,500+)</option>
+                            <option value="Intensive Keratin Hair Treatment">Intensive Keratin Hair Treatment (Rs. 7,000+)</option>
+                        </optgroup>
+                        
+                        <optgroup label="Nails & Hands">
+                            <option value="Gloss Custom Nail Art">Gloss Custom Nail Art (Rs. 2,000+)</option>
+                            <option value="Spa Manicure">Spa Manicure (Rs. 3,500)</option>
+                            <option value="Luxury Spa Pedicure">Luxury Spa Pedicure (Rs. 4,500)</option>
+                        </optgroup>
+                        
+                        <optgroup label="Makeup & Bridal">
+                            <option value="Exclusive Bridal Dressing">Exclusive Bridal Dressing (Rs. 45,000+)</option>
+                            <option value="Glam / Occasion Makeup">Glam / Occasion Makeup (Rs. 8,500)</option>
+                            <option value="Eyebrow Threading & Shaping">Eyebrow Threading & Shaping (Rs. 400)</option>
+                            <option value="Eyelash Extension">Eyelash Extension (Rs. 6,000+)</option>
+                        </optgroup>
+                        
+                        <optgroup label="Skin & Therapy">
+                            <option value="Gold Luxury Facial & Cleanup">Gold Luxury Facial & Cleanup (Rs. 4,500)</option>
+                            <option value="Full Body/Face Waxing">Full Body/Face Waxing (Rs. 2,500+)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="booking-date">Preferred Date *</label>
+                        <input type="date" id="booking-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-time">Preferred Time Slot *</label>
+                        <select id="booking-time" required>
+                            <option value="" disabled selected>Select time...</option>
+                            <option value="09:00 AM">09:00 AM - 10:30 AM</option>
+                            <option value="10:30 AM">10:30 AM - 12:00 PM</option>
+                            <option value="12:00 PM">12:00 PM - 01:30 PM</option>
+                            <option value="01:30 PM">01:30 PM - 03:00 PM</option>
+                            <option value="03:00 PM">03:00 PM - 04:30 PM</option>
+                            <option value="04:30 PM">04:30 PM - 06:00 PM</option>
+                            <option value="06:00 PM">06:00 PM - 07:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block" id="btn-submit-booking">Confirm Appointment</button>
+            </form>
+
+            <!-- Successful booking confirmation layout inside modal -->
+            <div class="booking-success-message" id="booking-success">
+                <div class="success-checkmark">
+                    <div class="check-icon">
+                        <span class="icon-line line-tip"></span>
+                        <span class="icon-line line-long"></span>
+                        <div class="icon-circle"></div>
+                        <div class="icon-fix"></div>
+                    </div>
+                </div>
+                <h3>Appointment Confirmed!</h3>
+                <p>Thank you for choosing Salon Colombia. Your appointment has been scheduled successfully.</p>
+                <div class="success-details-box" id="success-details-content">
+                    <!-- Confirmed booking details injected by JS -->
+                </div>
+                <button class="btn btn-secondary" onclick="closeBookingModal()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet.js Map script -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Custom Application Javascript -->
+    <script src="app.js"></script>
+</body>
+</html>
