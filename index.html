@@ -3,10 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
     <meta name="description" content="Discover Salon Colombia Pvt Ltd in Nugegoda, Sri Lanka. Experience affordable luxury with top-tier hairdressing, bridal dressing, nail art, and skin treatments. Open 7 days a week, fully operational during power outages.">
     <meta name="keywords" content="Salon Colombia, Salon Nugegoda, Nugegoda Salons, Haircut Nugegoda, Bridal Dressing Sri Lanka, Nail Art Nugegoda, Facials Nugegoda, Sri Lanka Beauty Salon">
     <meta name="author" content="Salon Colombia Pvt Ltd">
     <title>Salon Colombia Pvt Ltd | Affordable Luxury Salon in Nugegoda</title>
+    
+    <!-- Canonical URL to avoid duplicate indexing -->
+    <link rel="canonical" href="https://saloncolombia.netlify.app/">
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="Salon Colombia Pvt Ltd | Affordable Luxury Salon in Nugegoda">
+    <meta property="og:description" content="Experience affordable luxury with top-tier hairdressing, bridal dressing, nail art, and skin treatments in Nugegoda. Open 7 days a week with active power backup.">
+    <meta property="og:image" content="https://saloncolombia.netlify.app/images/salon_interior.png">
+    <meta property="og:url" content="https://saloncolombia.netlify.app/">
+    <meta property="og:site_name" content="Salon Colombia">
+    <meta property="business:contact_data:street_address" content="17A 2nd Floor, Mudaliyar's Avenue">
+    <meta property="business:contact_data:locality" content="Nugegoda">
+    <meta property="business:contact_data:region" content="Colombo">
+    <meta property="business:contact_data:postal_code" content="10250">
+    <meta property="business:contact_data:country_name" content="Sri Lanka">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Salon Colombia Pvt Ltd | Affordable Luxury Salon in Nugegoda">
+    <meta name="twitter:description" content="Experience affordable luxury with top-tier hairdressing, bridal dressing, nail art, and skin treatments in Nugegoda. Open 7 days a week with active power backup.">
+    <meta name="twitter:image" content="https://saloncolombia.netlify.app/images/salon_interior.png">
+
+    <!-- JSON-LD Local Business Structured Data for Google Search & Maps -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Salon Colombia Pvt Ltd",
+      "image": [
+        "https://saloncolombia.netlify.app/images/salon_interior.png",
+        "https://saloncolombia.netlify.app/images/hair_styling.png",
+        "https://saloncolombia.netlify.app/images/nail_art.png",
+        "https://saloncolombia.netlify.app/images/bridal_makeup.png"
+      ],
+      "@id": "https://saloncolombia.netlify.app/#salon-colombia",
+      "url": "https://saloncolombia.netlify.app/",
+      "telephone": "+94740099725",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "17A 2nd Floor, Mudaliyar's Avenue",
+        "addressLocality": "Nugegoda",
+        "addressRegion": "Colombo",
+        "postalCode": "10250",
+        "addressCountry": "LK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 6.8710,
+        "longitude": 79.8988
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.roo.lk/shop/Salon-colombia-124"
+      ]
+    }
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -512,12 +591,12 @@
                     <div class="social-links-box">
                         <h4>Follow Our Work</h4>
                         <div class="social-icons">
-                            <a href="https://facebook.com" target="_blank" class="social-icon-link" aria-label="Follow us on Facebook" id="social-fb">
+                            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="Follow Salon Colombia on Facebook" title="Follow Salon Colombia on Facebook" id="social-fb">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M14 13.5h2.5l1-4H14v-2c0-1.03.3-2 1.5-2h2.5V2H14c-3.3 0-5.5 2.2-5.5 5.5v2H6v4h2.5V22h5.5v-8.5z"/>
                                 </svg>
                             </a>
-                            <a href="https://instagram.com" target="_blank" class="social-icon-link" aria-label="Follow us on Instagram" id="social-ig">
+                            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="Follow Salon Colombia on Instagram" title="Follow Salon Colombia on Instagram" id="social-ig">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
                                 </svg>
@@ -551,7 +630,7 @@
                 <p>&copy; 2026 Salon Colombia Pvt Ltd. All Rights Reserved. Crafted with care in Nugegoda.</p>
                 <div class="footer-meta-links">
                     <a href="#overview">Back to Top</a>
-                    <a href="https://www.roo.lk/shop/Salon-colombia-124" target="_blank">Original Roo.lk Store</a>
+                    <a href="https://www.roo.lk/shop/Salon-colombia-124" target="_blank" rel="noopener" aria-label="View original catalog on Roo.lk" title="View original catalog on Roo.lk">Original Roo.lk Store</a>
                 </div>
             </div>
         </div>

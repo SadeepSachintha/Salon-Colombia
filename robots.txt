@@ -1,0 +1,15 @@
+# robots.txt for Salon Colombia Pvt Ltd
+# https://saloncolombia.netlify.app/
+
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /app.js
+Allow: /style.css
+
+# Exclude potential test files if any exist
+Disallow: /tests/
+Disallow: /drafts/
+
+# Reference to the XML Sitemap
+Sitemap: https://saloncolombia.netlify.app/sitemap.xml
