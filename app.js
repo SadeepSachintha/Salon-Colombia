@@ -143,10 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const myAppointmentsSection = document.getElementById('my-appointments-section');
     const userAppointmentsList = document.getElementById('user-appointments-list');
 
-    // Set Minimum Date to Today in Datepicker
+    // Set Minimum Date to Today in Datepicker (or Tomorrow if past salon booking hours)
     const dateInput = document.getElementById('booking-date');
     if (dateInput) {
         const today = new Date();
+        // If current hour is 18 (6:00 PM) or later, the last slot has started/passed. Bump to tomorrow.
+        if (today.getHours() >= 18) {
+            today.setDate(today.getDate() + 1);
+        }
         const yyyy = today.getFullYear();
         let mm = today.getMonth() + 1; // Months start at 0
         let dd = today.getDate();
@@ -201,6 +205,41 @@ document.addEventListener('DOMContentLoaded', () => {
             const service = document.getElementById('booking-service').value;
             const date = document.getElementById('booking-date').value;
             const time = document.getElementById('booking-time').value;
+
+            // Block past dates (back-date validation)
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1; // Months are 0-indexed
+            let dd = today.getDate();
+            if (dd < 10) dd = '0' + dd;
+            if (mm < 10) mm = '0' + mm;
+            const todayStr = `${yyyy}-${mm}-${dd}`;
+
+            if (date < todayStr) {
+                alert('Please select today or a future date. Bookings on past dates are not permitted.');
+                return;
+            }
+
+            // If booking for today, block past time slots
+            if (date === todayStr) {
+                const slotStartHours = {
+                    "09:00 AM": 9.0,
+                    "10:30 AM": 10.5,
+                    "12:00 PM": 12.0,
+                    "01:30 PM": 13.5,
+                    "03:00 PM": 15.0,
+                    "04:30 PM": 16.5,
+                    "06:00 PM": 18.0
+                };
+
+                const currentHourDecimal = today.getHours() + (today.getMinutes() / 60);
+                const selectedSlotStart = slotStartHours[time];
+
+                if (selectedSlotStart !== undefined && selectedSlotStart < currentHourDecimal) {
+                    alert('The selected time slot has already passed for today. Please choose a future slot.');
+                    return;
+                }
+            }
 
             const newBooking = { name, phone, email, service, date, time };
 
