@@ -224,13 +224,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const whatsappButton = document.getElementById('btn-whatsapp-confirm');
             if (whatsappButton) {
                 const phoneNumber = '94763928333'; // Test WhatsApp Number (International Format)
-                const textMessage = `Hello Salon Colombia! 🌸 I would like to confirm my booking:\n\n` +
-                    `💅 *Service:* ${service}\n` +
-                    `📅 *Date:* ${date}\n` +
-                    `⏰ *Time:* ${time}\n` +
-                    `👤 *Client Name:* ${name}\n` +
-                    `📞 *Contact:* ${phone}` +
-                    (email ? `\n✉️ *Email:* ${email}` : '') +
+                const textMessage = `Hello Salon Colombia! \u{1F338} I would like to confirm my booking:\n\n` +
+                    `\u{1F485} *Service:* ${service}\n` +
+                    `\u{1F4C5} *Date:* ${date}\n` +
+                    `\u{23F0} *Time:* ${time}\n` +
+                    `\u{1F464} *Client Name:* ${name}\n` +
+                    `\u{1F4DE} *Contact:* ${phone}` +
+                    (email ? `\n\u{2709}\u{FE0F} *Email:* ${email}` : '') +
                     `\n\nPlease confirm my appointment. Thank you!`;
 
                 whatsappButton.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`;
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px;">
                 <h4 style="color:#d4af37; margin-bottom:4px; font-weight:700;">Salon Colombia</h4>
                 <p style="font-size:12px; margin:0 0 6px;">17A 2nd Floor, Mudalige's Avenue, Nugegoda</p>
-                <a href="tel:0740099725" style="color:#fff; font-weight:700; font-size:12px;">📞 074 009 9725</a>
+                <a href="tel:0740099725" style="color:#fff; font-weight:700; font-size:12px;">\u{1F4DE} 074 009 9725</a>
             </div>
         `).openPopup();
 
