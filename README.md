@@ -29,7 +29,9 @@ Clients can easily browse through the menu of premium services (Hair Care, Nails
 
 ### 5. 📂 Persistent Client-Side Booking & Receipt Dashboard
 An extensive booking portal is built directly into the client side:
-- **Smart Datepicker Validation**: Prevents backdated appointments by dynamically configuring minimum available dates to the client's current calendar day.
+- **Smart Datepicker Validation**: Prevents backdated appointments by dynamically configuring minimum available dates to the client's current calendar day. If the customer visits the site after daily booking hours have ended (6:00 PM onwards), the system automatically locks out today and advances the calendar minimum to tomorrow.
+- **Same-Day Time Slot Validation**: Prevents booking past time slots on the current day. If a user selects today's date, all time slots that have already started or passed are blocked from submission, ensuring high-integrity bookings.
+- **Emoji-Free WhatsApp Integration**: Employs clean, high-compatibility plain text for booking confirmation templates sent via the WhatsApp API, completely avoiding character set rendering issues (such as `?` or `` icons) across different device platforms and browser encodings.
 - **Contextual Pre-Filling**: Booking forms auto-populate fields based on which service card or catalog element triggered the modal.
 - **In-Browser Local Database (`LocalStorage`)**: Keeps track of scheduled visits persistently.
 - **Dynamic Invoice Receipt**: Renders an interactive checkout invoice and appointment status dashboard directly on the page, with built-in styling for status badges.
