@@ -5,7 +5,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. Navbar Scroll State
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -43,11 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Salon Colombia Hours: Mon - Sun 09:00 - 19:00 (9:00 AM - 7:00 PM)
         const now = new Date();
-        
+
         // Convert to Sri Lankan Time (UTC+5:30)
         const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
         const slTime = new Date(utc + (3600000 * 5.5));
-        
+
         const hours = slTime.getHours();
         const minutes = slTime.getMinutes();
         const timeVal = hours + (minutes / 60);
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             serviceCards.forEach(card => {
                 const category = card.getAttribute('data-category');
-                
+
                 if (filter === 'all' || category === filter) {
                     card.style.display = 'flex';
                     setTimeout(() => {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showSlide(index) {
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
-        
+
         slides[index].classList.add('active');
         dots[index].classList.add('active');
         currentSlide = index;
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render stored appointments in dashboard
     function renderAppointments() {
         const bookings = getStoredAppointments();
-        
+
         if (bookings.length === 0) {
             myAppointmentsSection.style.display = 'none';
             return;
@@ -220,6 +220,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             }
 
+            // Generate WhatsApp URL
+            const whatsappButton = document.getElementById('btn-whatsapp-confirm');
+            if (whatsappButton) {
+                const phoneNumber = '94763928333'; // Test WhatsApp Number (International Format)
+                const textMessage = `Hello Salon Colombia! 🌸 I would like to confirm my booking:\n\n` +
+                    `💅 *Service:* ${service}\n` +
+                    `📅 *Date:* ${date}\n` +
+                    `⏰ *Time:* ${time}\n` +
+                    `👤 *Client Name:* ${name}\n` +
+                    `📞 *Contact:* ${phone}` +
+                    (email ? `\n✉️ *Email:* ${email}` : '') +
+                    `\n\nPlease confirm my appointment. Thank you!`;
+
+                whatsappButton.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(textMessage)}`;
+            }
+
             // Toggle views inside modal
             appointmentForm.style.display = 'none';
             bookingSuccess.classList.add('show');
@@ -230,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Cancel appointment function (exposed globally)
-    window.cancelAppointment = function(index) {
+    window.cancelAppointment = function (index) {
         if (confirm('Are you sure you want to cancel this booking?')) {
             const bookings = getStoredAppointments();
             bookings.splice(index, 1);
@@ -271,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const marker = L.marker([6.8710, 79.8988], { icon: goldIcon }).addTo(map);
-        
+
         marker.bindPopup(`
             <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px;">
                 <h4 style="color:#d4af37; margin-bottom:4px; font-weight:700;">Salon Colombia</h4>
@@ -317,7 +333,7 @@ function openBookingModal(preselectedService = '') {
 function closeBookingModal() {
     const modal = document.getElementById('booking-modal');
     if (!modal) return;
-    
+
     modal.classList.remove('open');
     document.body.style.overflow = 'auto'; // Enable body scrolling
 }
