@@ -918,6 +918,15 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 13px;
     color: var(--text-muted);
 }
+.footer-developer-link {
+    color: var(--gold);
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+.footer-developer-link:hover {
+    color: var(--gold-light);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
 .footer-meta-links {
     display: flex;
     gap: 24px;

@@ -144,4 +144,11 @@ When you push any updates to the `main` branch of this repository, Netlify inter
 | **Web Catalog** | [Roo.lk Shop Directory Listing](https://www.roo.lk/shop/Salon-colombia-124) |
 
 ---
-*Developed with meticulous attention to detail and designed for high-conversion styling bookings in Nugegoda.*
+
+## 👨‍💻 Credits & Team
+
+* **Designed & Developed by:** [SS Labz](https://www.facebook.com/share/1Ea1iyZUvq/?mibextid=wwXIfr)
+* **Lead Developer:** Sadeep Sachintha
+
+---
+*Developed by [SS Labz](https://www.facebook.com/share/1Ea1iyZUvq/?mibextid=wwXIfr) with meticulous attention to detail and designed for high-conversion styling bookings in Nugegoda.*
